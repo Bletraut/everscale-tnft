@@ -47,20 +47,43 @@ contract NftRoot is NftResolver, IndexResolver {
         _ownerPubkey = ownerPubkey;
     }
 
-    function mintNft(string dataName) public {
+    function mintPlayerNft(string description) public {
         require(msg.value >= (_indexDeployValue * 2) + _remainOnNft, NftRootErrors.value_less_than_required);
         tvm.rawReserve(msg.value, 1);
 
         TvmCell codeNft = _buildNftCode(address(this));
         TvmCell stateNft = _buildNftState(codeNft, _totalMinted);
-        address nftAddr = new Nft{
+        address nftAddr = new PlayerNft{
             stateInit: stateNft,
             value: (_indexDeployValue * 2) + _remainOnNft
             }(
                 msg.sender, 
                 _codeIndex,
                 _indexDeployValue,
-                dataName
+                description
+            ); 
+
+        emit TokenWasMinted(nftAddr, msg.sender);
+
+        _totalMinted++;
+
+        msg.sender.transfer({value: 0, flag: 128});
+    }
+
+    function mintTournamentNft(string description) public {
+        require(msg.value >= (_indexDeployValue * 2) + _remainOnNft, NftRootErrors.value_less_than_required);
+        tvm.rawReserve(msg.value, 1);
+
+        TvmCell codeNft = _buildNftCode(address(this));
+        TvmCell stateNft = _buildNftState(codeNft, _totalMinted);
+        address nftAddr = new TournamentNft{
+            stateInit: stateNft,
+            value: (_indexDeployValue * 2) + _remainOnNft
+            }(
+                msg.sender, 
+                _codeIndex,
+                _indexDeployValue,
+                description
             ); 
 
         emit TokenWasMinted(nftAddr, msg.sender);
