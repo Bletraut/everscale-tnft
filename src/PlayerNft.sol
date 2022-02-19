@@ -37,7 +37,7 @@ contract PlayerNft is NftBase, Description, TIP6 {
             )
         ] = true;
 
-        _supportedInterfaces[ bytes4(tvm.functionId(IName.getName)) ] = true;
+        _supportedInterfaces[ bytes4(tvm.functionId(IDescription.getDescription)) ] = true;
         _supportedInterfaces[ bytes4(tvm.functionId(ITIP6.supportsInterface)) ] = true;
 
         emit TokenWasMinted(addrOwner);

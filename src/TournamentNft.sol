@@ -10,8 +10,8 @@ import '../tnft-interfaces/NftInterfaces/ITIP6/TIP6.sol';
 
 contract TournamentNft is NftBase, Description, TIP6 {
 
-    string _player1Address;
-    string _player2Address;
+    string _player1;
+    string _player2;
     string _result;
 
     bool _player1Setted;
@@ -44,7 +44,7 @@ contract TournamentNft is NftBase, Description, TIP6 {
             )
         ] = true;
 
-        _supportedInterfaces[ bytes4(tvm.functionId(IName.getName)) ] = true;
+        _supportedInterfaces[ bytes4(tvm.functionId(IDescription.getDescription)) ] = true;
         _supportedInterfaces[ bytes4(tvm.functionId(ITIP6.supportsInterface)) ] = true;
 
         emit TokenWasMinted(addrOwner);
@@ -52,19 +52,19 @@ contract TournamentNft is NftBase, Description, TIP6 {
         _deployIndex(addrOwner);
     }
 
-    function setPlayer1Address(string player1Address) public {
+    function setPlayer1(string player1) public {
         require(_player1Setted == false);
 
         tvm.accept();
-        _player1Address = _player1Address;
+        _player1 = player1;
         _player1Setted = true;
     }
 
-    function setPlayer2Address(string player2Address) public {
+    function setPlayer2(string player2) public {
         require(_player2Setted == false);
 
         tvm.accept();
-        _player2Address = _player2Address;
+        _player2 = player2;
         _player2Setted = true;
     }
 
@@ -73,20 +73,15 @@ contract TournamentNft is NftBase, Description, TIP6 {
         _result = result;
     }
 
-    function getPlayer1Address() public override responsible returns (string player1Address) {
-        return {value: 0, flag: 64}(_player1Address);
+    function getPlayer1() public view responsible returns(string player1) {
+        return {value: 0, flag: 64}(_player1);
     }
 
-    function getPlayer2Address() public override responsible returns (string player2Address) {
-        return {value: 0, flag: 64}(_player2Address);
+    function getPlayer2() public view responsible returns(string player2) {
+        return {value: 0, flag: 64}(_player2);
     }
 
-    function getResult() public override responsible returns (string result) {
+    function getResult() public view responsible returns (string result) {
         return {value: 0, flag: 64}(_result);
-    }
-
-    modifier onlyOwner {
-        require(msg.pubkey() == _ownerPubkey, NftRootErrors.not_my_pubkey);
-        _;
     }
 }

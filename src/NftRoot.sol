@@ -33,17 +33,20 @@ contract NftRoot is NftResolver, IndexResolver {
 
     constructor(
         TvmCell codeIndex, 
-        TvmCell codeNft, 
+        TvmCell codePlayerNft, 
+        TvmCell codeTournamentNft,
         uint256 ownerPubkey
     ) public {
         TvmCell empty;
         require(ownerPubkey != 0, NftRootErrors.pubkey_is_empty);
         require(codeIndex != empty, NftRootErrors.value_is_empty);
-        require(codeNft != empty, NftRootErrors.value_is_empty);
+        require(codePlayerNft != empty, NftRootErrors.value_is_empty);
+        require(codeTournamentNft != empty, NftRootErrors.value_is_empty);
         tvm.accept();
 
         _codeIndex = codeIndex;
-        _codeNft = codeNft;
+        _codePlayerNft = codePlayerNft;
+        _codeTournamentNft = codeTournamentNft;
         _ownerPubkey = ownerPubkey;
     }
 
@@ -51,8 +54,8 @@ contract NftRoot is NftResolver, IndexResolver {
         require(msg.value >= (_indexDeployValue * 2) + _remainOnNft, NftRootErrors.value_less_than_required);
         tvm.rawReserve(msg.value, 1);
 
-        TvmCell codeNft = _buildNftCode(address(this));
-        TvmCell stateNft = _buildNftState(codeNft, _totalMinted);
+        TvmCell codeNft = _buildPlayerNftCode(address(this));
+        TvmCell stateNft = _buildPlayerNftState(codeNft, _totalMinted);
         address nftAddr = new PlayerNft{
             stateInit: stateNft,
             value: (_indexDeployValue * 2) + _remainOnNft
@@ -74,8 +77,8 @@ contract NftRoot is NftResolver, IndexResolver {
         require(msg.value >= (_indexDeployValue * 2) + _remainOnNft, NftRootErrors.value_less_than_required);
         tvm.rawReserve(msg.value, 1);
 
-        TvmCell codeNft = _buildNftCode(address(this));
-        TvmCell stateNft = _buildNftState(codeNft, _totalMinted);
+        TvmCell codeNft = _buildTournamentNftCode(address(this));
+        TvmCell stateNft = _buildTournamentNftState(codeNft, _totalMinted);
         address nftAddr = new TournamentNft{
             stateInit: stateNft,
             value: (_indexDeployValue * 2) + _remainOnNft
@@ -91,21 +94,6 @@ contract NftRoot is NftResolver, IndexResolver {
         _totalMinted++;
 
         msg.sender.transfer({value: 0, flag: 128});
-    }
-
-    function deployIndexBasis(TvmCell codeIndexBasis) public onlyOwner {
-        require(address(this).balance > _deployIndexBasisValue + 0.1 ton, NftRootErrors.value_less_than_required); /// 0.1 ton this is freeze protection
-        tvm.accept();
-        uint256 codeHashData = resolveCodeHashNft();
-        TvmCell state = tvm.buildStateInit({
-            contr: IndexBasis,
-            varInit: {
-                _codeHashData: codeHashData,
-                _addrRoot: address(this)
-            },
-            code: codeIndexBasis
-        });
-        _addrIndexBasis = new IndexBasis{stateInit: state, value: _deployIndexBasisValue}();
     }
 
     function destructIndexBasis() public view onlyOwner {
