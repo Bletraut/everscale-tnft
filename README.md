@@ -13,7 +13,7 @@ Players contribute their genomes to the NFT tournament (registration). A special
   https://ton.bytie.moe/executor</br>
   All NFTs are deployed on the TrueNft blockchain (devdet), contract addresses, methods can be viewed at the following addresses.</br>
   Load all abi files from <a href="https://github.com/Bletraut/everscale-tnft/tree/master/src">everscale-tnft/src/</a></br>
-    
+    <p></p>
 👩‍🚀 NftRoot</br>
 ```0:de971a3e543d7bad75f908f431aaece483acaf96f2f62916ad4e4cfdd7850724```</br>
 Master contract, provides methods for releasing NFT tournaments and players
