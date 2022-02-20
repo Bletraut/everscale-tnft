@@ -24,6 +24,6 @@ NFT of the tournament - accepts the genomes of the players of the players (regis
 ```0:b7ae85b8acff24b124f62bff11b8469219783496046fe37f56f20a7d0b513269```</br>
 NFT with the genome of the first player
   
-🖥 Player2Nft
-0:072a27ee8e061f14a6bb306de03dd9fdb7a81d6632347d974f82e8e5c60dfadd
+🖥 Player2Nft</br>
+```0:072a27ee8e061f14a6bb306de03dd9fdb7a81d6632347d974f82e8e5c60dfadd```</br>
 NFT with the genome of the second player
