@@ -14,7 +14,7 @@ Players contribute their genomes to the NFT tournament (registration). A special
     
 👩‍🚀 NftRoot
 0:de971a3e543d7bad75f908f431aaece483acaf96f2f62916ad4e4cfdd7850724
-**Master contract, provides methods for releasing NFT tournaments and players
+Master contract, provides methods for releasing NFT tournaments and players
 
 🏠 TournamentNft
 0:e3e517fa8313d5d1ef5f6bb16452e2d7cc8449986782062ecf5729eb6fa00d65
