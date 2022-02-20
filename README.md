@@ -12,16 +12,16 @@ Players contribute their genomes to the NFT tournament (registration). A special
 <h2>How it looks?</h2>
   All NFTs are deployed on the TrueNft blockchain, contract addresses, methods can be viewed at the following addresses.
     
-👩‍🚀 NftRoot
-```0:de971a3e543d7bad75f908f431aaece483acaf96f2f62916ad4e4cfdd7850724```
+👩‍🚀 NftRoot\n
+```0:de971a3e543d7bad75f908f431aaece483acaf96f2f62916ad4e4cfdd7850724```\n
 Master contract, provides methods for releasing NFT tournaments and players
 
-🏠 TournamentNft
-```0:e3e517fa8313d5d1ef5f6bb16452e2d7cc8449986782062ecf5729eb6fa00d65```
+🏠 TournamentNft\n
+```0:e3e517fa8313d5d1ef5f6bb16452e2d7cc8449986782062ecf5729eb6fa00d65```\n
 NFT of the tournament - accepts the genomes of the players of the players (registration for the tournament) and stores the results of the tournament
 
-🖥 Player1Nft
-```0:b7ae85b8acff24b124f62bff11b8469219783496046fe37f56f20a7d0b513269```
+🖥 Player1Nft\n
+```0:b7ae85b8acff24b124f62bff11b8469219783496046fe37f56f20a7d0b513269```\n
 NFT with the genome of the first player
   
 🖥 Player2Nft
