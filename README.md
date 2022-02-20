@@ -10,7 +10,9 @@ Players contribute their genomes to the NFT tournament (registration). A special
   At the end of the tournament, the Oracle records the results of the players in the NFT tournament and determines the winner.
 
 <h2>How it looks?</h2>
-  All NFTs are deployed on the TrueNft blockchain, contract addresses, methods can be viewed at the following addresses.
+  https://ton.bytie.moe/executor</br>
+  All NFTs are deployed on the TrueNft blockchain (devdet), contract addresses, methods can be viewed at the following addresses.</br>
+  Load all abi files from ```everscale-tnft/src/```
     
 👩‍🚀 NftRoot</br>
 ```0:de971a3e543d7bad75f908f431aaece483acaf96f2f62916ad4e4cfdd7850724```</br>
