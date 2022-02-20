@@ -19,13 +19,13 @@ Players contribute their genomes to the NFT tournament (registration). A special
 Master contract, provides methods for releasing NFT tournaments and players
 
 🏠 TournamentNft</br>
-```0:e3e517fa8313d5d1ef5f6bb16452e2d7cc8449986782062ecf5729eb6fa00d65```</br>
+```0:232cf076fa08bca5244353d866a4bff8b5640af07cddbe8f11ee0070c782c9ee```</br>
 NFT of the tournament - accepts the genomes of the players of the players (registration for the tournament) and stores the results of the tournament
 
 🖥 Player1Nft</br>
-```0:b7ae85b8acff24b124f62bff11b8469219783496046fe37f56f20a7d0b513269```</br>
+```0:df54101c058fb8766d5580a1110bf5ec420426d2d427537c4e344d3667cdaf86```</br>
 NFT with the genome of the first player
   
 🖥 Player2Nft</br>
-```0:072a27ee8e061f14a6bb306de03dd9fdb7a81d6632347d974f82e8e5c60dfadd```</br>
+```0:5520002dd0a8c970400fb589b44cc448035add09b049a3338ca6f23d12357969```</br>
 NFT with the genome of the second player
