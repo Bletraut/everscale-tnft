@@ -3,7 +3,7 @@
 <h2>What is it?</h2>
   NTF-TOURNAMENT is a platform for implementing game mechanics based on TrueNFT at the level of smart contracts.
   
-<h2>How is works?</h2>
+<h2>How it works?</h2>
   We have implemented the NftRoot smart contract on the Everscale platform, which is responsible for issuing NFTs necessary for creating a tournament, as well as for registering players.
   With the help of NftRoot, an NFT tournament is created, in which 2 players can take part.
 Players contribute their genomes to the NFT tournament (registration). A special program - Oracle (neural network) calculates the genomes of each player and determines the best genome.
